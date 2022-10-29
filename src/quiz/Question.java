@@ -1,11 +1,12 @@
 package quiz;
 
 // Global Imports
-import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Question {
     public String question; // Question
-    public HashSet<String> answers = new HashSet<String>(); // List of asnwers (only unique values)
+    public List<String> answers = new ArrayList<String>(); // List of asnwers
     String correctAnswer; // Correct Answer (not public. can only be set through setCorrectAnswer method)
 
     // Set correct answer
@@ -21,7 +22,7 @@ public class Question {
     }
 
     //Check if answer is correct
-    public boolean isAnswerCorrect(String ans) {
+    public boolean isCorrctAnswer(String ans) {
         return ans == correctAnswer ? true : false; // Returns true if user's answer matches correct asnwer
     }
 }
