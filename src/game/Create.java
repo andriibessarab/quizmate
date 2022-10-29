@@ -50,7 +50,7 @@ public class Create {
             // TODO - check if valid int & and 1 < int < 6
 
             // Get answers
-            System.out.println("\nAnswers");
+            System.out.println("Answers");
             List<String> newQuestionAnswers = new ArrayList<String>(); // Array of answers to a question
             int j = 0;
             while (newQuestionAnswers.size() != newQuestionNumOfAnswers) {
@@ -84,9 +84,17 @@ public class Create {
         }
 
         newQuiz.questions = questions; // Set variable "questions" of a new instance of class Quiz to user's questions 
-        
+
         fileManager.writeObject(newQuiz.quizName, newQuiz); // Create file
         // TODO - handle file manager errors
         System.out.println("Quiz Created Successfully!");
     }
+
+    //Delete Quiz
+    public static void delete() {
+
+        // TODO
+
+    }
+
 } 
