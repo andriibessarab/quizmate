@@ -1,56 +1,46 @@
 package fileManagement;
 
-// Global imports
-import java.io.*;
+// Global imports 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.NotSerializableException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashSet;
 
-// Local imports
-import question.Question;
+// Local Imports
+import quiz.*;
 
 public class fileManager {
-    // Create & write to file
-    public static void writeToFile(String quizName, Question[] data)
-    {
 
-        String path = "./Quizes/" + quizName + ".dat"; // Path to file
+	// Add quiz to file
+	public static void writeObject(String quizName, Quiz[] quiz) {
+
+        String path = "./Quizes/" + quizName + ".txt"; // Path to file
+
+		// TODO - check if file of this name exists
 
         try(ObjectOutputStream write = new ObjectOutputStream (new FileOutputStream(path)))
         {
-            write.writeObject(data);
+            write.writeObject(quiz); // Store object of class Quiz in file
         }
         catch(NotSerializableException nse)
         {
-            //do something
+            // TODO
         }
         catch(IOException eio)
         {
-            //do something
+            // TODO
         }
     }
-    
-    // Read file
-    public static Object readFromFile(String quizName)
-    {
-        String path = "./Quizes/" + quizName + ".dat"; // Path to file
-        Object data = null; // File's data
-    
-        try(ObjectInputStream inFile = new ObjectInputStream(new FileInputStream(path)))
-        {
-            data = inFile.readObject(); // Read file
-            inFile.close(); // Close File
-            return data; // Return contents
-        }
-        catch(ClassNotFoundException cnfe)
-        {
-            //do something
-        }
-        catch(FileNotFoundException fnfe)
-        {
-            //do something
-        }
-        catch(IOException e)
-        {
-            //do something
-        }
-        return data;
-    }  
+
+	// Read quiz from file
+    public static Question[] readObject(String quizName) {
+		// TODO
+		return new Question[]{};
+	}
+
 }
