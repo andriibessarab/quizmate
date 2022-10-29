@@ -12,8 +12,6 @@ public class Play {
     public static final Scanner scan = new Scanner(System.in);
     // Play Quiz
     public static void play() {
-        Quiz quiz = fileManager.readObject("asd");
-
-        System.out.println(quiz.quizName);
+        Quiz quiz = fileManager.readObject("");
     }
 } 
