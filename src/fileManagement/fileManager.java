@@ -1,13 +1,17 @@
 package fileManagement;
 
-// Global imports 
+// Global imports
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.NotSerializableException;
-import java.io.ObjectOutputStream;
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 
 // Local Imports
-import quiz.*;
+import quiz.Quiz;
 
 public class fileManager {
 
@@ -22,32 +26,42 @@ public class fileManager {
 	// Add quiz to file
 	public static void writeObject(String quizName, Quiz quiz) {
 
-        String path = "./quizData/" + quizName + ".txt"; // Path to file
+        String path = "./quizData/" + quizName + ".xml"; // Path to file
 
-        try(ObjectOutputStream write = new ObjectOutputStream (new FileOutputStream(path)))
+        try
         {
-            write.writeObject(quiz); // Store object of class Quiz in file
-        }
-        catch(NotSerializableException nse)
-        {
-            System.out.println("dfg");
-            // TODO
+            XMLEncoder e = new XMLEncoder(
+                new BufferedOutputStream(
+                    new FileOutputStream(path)));
+            e.writeObject(quiz);
+            e.close();
         }
         catch(IOException eio)
         {
-            System.out.println("dfgd");
             // TODO
         }
     }
 
 	// Read quiz from file
-    public static Question[] readObject(String quizName) {
+    public static Quiz readObject(String quizName) {
 
-        String path = "./quizData/" + quizName + ".txt"; // Path to file
+        String path = "./quizData/" + quizName + ".xml"; // Path to file
+        Quiz data = null;
 
-		// TODO
+        try
+        {
+            XMLDecoder d = new XMLDecoder(
+                      new BufferedInputStream(
+                          new FileInputStream(path)));
+            data = (Quiz) d.readObject();
+            d.close();
+            return data;
+        }
+        catch(FileNotFoundException fnfe)
+        {
+            // TODO
+        }
 
-		return new Question[]{};
+        return data;
 	}
-
 }

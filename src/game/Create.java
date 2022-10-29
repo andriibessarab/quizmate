@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Local imports
-import fileManagement.*;
-import quiz.*;
+import quiz.Quiz;
+import quiz.Question;
+import fileManagement.fileManager;
 
 public class Create {
     public static final Scanner scan = new Scanner(System.in);

@@ -4,13 +4,16 @@ package game;
 import java.util.Scanner;
 
 // Local imports
-import fileManagement.*;
-import quiz.*;
+import fileManagement.fileManager;
+import quiz.Quiz;
+import quiz.Question;
 
 public class Play {
     public static final Scanner scan = new Scanner(System.in);
     // Play Quiz
     public static void play() {
-        // TODO
+        Quiz quiz = fileManager.readObject("asd");
+
+        System.out.println(quiz.quizName);
     }
 } 
