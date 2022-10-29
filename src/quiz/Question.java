@@ -1,10 +1,11 @@
 package quiz;
 
-import java.util.*;
+// Global Imports
+import java.util.HashSet;
 
 public class Question {
     public String question; // Question
-    public List<String> answers = new ArrayList<String>(); // List of asnwers
+    public HashSet<String> answers = new HashSet<String>(); // List of asnwers (only unique values)
     String correctAnswer; // Correct Answer (not public. can only be set through setCorrectAnswer method)
 
     // Set correct answer
