@@ -1,5 +1,6 @@
 package game;
 
+import java.util.List;
 // Global imports
 import java.util.Scanner;
 
@@ -12,6 +13,10 @@ public class Play {
     public static final Scanner scan = new Scanner(System.in);
     // Play Quiz
     public static void play() {
-        Quiz quiz = fileManager.readObject("");
+        List<String> allQuizes = fileManager.listAllObjects(); // list of all quizes. if none, return null
+
+        Quiz quiz = fileManager.readObject(""); // get Quiz object for specific quiz
+
+
     }
 } 

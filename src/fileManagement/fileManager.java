@@ -5,12 +5,15 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.File;
 
-// Local Imports
+// Local imports
 import quiz.Quiz;
 
 public class fileManager {
@@ -21,6 +24,22 @@ public class fileManager {
         // TODO
 
         return true;
+    }
+
+    // Get list of all quizes
+    public static List<String> listAllObjects() {
+        List<String> results = new ArrayList<String>();
+
+
+        File[] files = new File("./quizData").listFiles(); //If this pathname does not denote a directory, then listFiles() returns null. 
+
+        for (File file : files) {
+            if (file.isFile()) {
+                results.add(file.getName());
+            }
+        }
+
+        return results;
     }
 
 	// Add quiz to file
