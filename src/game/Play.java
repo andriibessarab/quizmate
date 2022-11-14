@@ -22,7 +22,7 @@ public class Play {
         List<String> allQuizes = fileManager.listAllObjects(); // list of all quizes. if none, return null
         if (allQuizes == null) {
             System.out.println("No quizzes made... Go create some!");
-            
+
         }
         else {
             while (runCondition = true)
