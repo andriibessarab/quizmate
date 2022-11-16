@@ -49,6 +49,8 @@ public class Play {
             break;
         }
 
+
+
         // Start game
         System.out.println("\n<----" + quiz.quizName + "---->");
 
@@ -66,17 +68,24 @@ public class Play {
             while (true) {
                 System.out.print("Your answer: ");
                 ans = scan.next();
+                ans = ans.toUpperCase();
+                System.out.println(ans);
+
                 if (ans.length() == 1) {
-                    break;
+                    int charAns = ans.charAt(0);
+                    if(charAns >= 65 && charAns <= (65 + (q.answers.size()-1))) {
+                        break;
+                    }
+
                 }
             }
 
-            /*
+
             if (q.isCorrctAnswer(q.answers.get((int)ans.charAt(0) - 65))) {
                 System.out.println("You got it!!!");
             } else {
                 System.out.println("Try harder next time :(");
-            }*/
+            }
 
         }
     }
