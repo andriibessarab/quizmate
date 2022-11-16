@@ -61,22 +61,25 @@ public class Play {
             }
 
             String ans;
+            char answer;
 
             //prompt user for answer
             while (true) {
                 System.out.print("Your answer: ");
                 ans = scan.next();
                 if (ans.length() == 1) {
+                    answer = ans.toUpperCase().charAt(0);
                     break;
                 }
             }
 
-            /*
-            if (q.isCorrctAnswer(q.answers.get((int)ans.charAt(0) - 65))) {
+
+
+            if (q.isCorrectAnswer(q.answers.get((int)answer - 65))) {
                 System.out.println("You got it!!!");
             } else {
                 System.out.println("Try harder next time :(");
-            }*/
+            }
 
         }
     }

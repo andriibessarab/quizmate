@@ -22,8 +22,8 @@ public class Question {
     }
 
     //Check if answer is correct
-    public boolean isCorrctAnswer(String ans) {
-        return ans == correctAnswer ? true : false; // Returns true if user's answer matches correct answer
+    public boolean isCorrectAnswer(String ans) {
+        return ans.equals(correctAnswer) ? true : false; // Returns true if user's answer matches correct answer
     }
 }
 
