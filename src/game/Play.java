@@ -67,20 +67,24 @@ public class Play {
             while (true) {
                 System.out.print("Your answer: ");
                 ans = scan.next();
+                ans = ans.toUpperCase();
+                System.out.println(ans);
+
                 if (ans.length() == 1) {
-                    answer = ans.toUpperCase().charAt(0);
-                    break;
+                    answer = ans.charAt(0);
+                    int charAns = answer;
+                    if(charAns >= 65 && charAns <= (65 + (q.answers.size()-1))) {
+                        break;
+                    }
+
                 }
             }
-
-
 
             if (q.isCorrectAnswer(q.answers.get((int)answer - 65))) {
                 System.out.println("You got it!!!");
             } else {
                 System.out.println("Try harder next time :(");
             }
-
         }
     }
 }
