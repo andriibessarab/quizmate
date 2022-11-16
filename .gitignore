@@ -52,3 +52,6 @@ replay_pid*
 
 # Test Files
 quizData/*
+
+# IDE Specific
+.idea
