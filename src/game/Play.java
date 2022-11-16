@@ -11,14 +11,13 @@ import fileManagement.fileManager;
 import quiz.Quiz;
 import quiz.Question;
 
-import javax.swing.*;
-
 public class Play {
     public static final Scanner scan = new Scanner(System.in);
 
     // Play Quiz
     public static void play() {
         List<String> allQuizzes = fileManager.listAllObjects(); // list of all quizzes. if none, return null
+        int score = 0;
         if (allQuizzes == null) {
             System.out.println("No quizzes made... Go create some!");
             return;
@@ -29,7 +28,7 @@ public class Play {
             System.out.println(allQuizzes.indexOf(q) + 1 + " : " + q.replace(".xml", ""));
         }
 
-        Quiz quiz = null;
+        Quiz quiz;
 
         while (true) {
             int q;
@@ -82,10 +81,13 @@ public class Play {
 
             if (q.isCorrectAnswer(q.answers.get((int)answer - 65))) {
                 System.out.println("You got it!!!");
+                score++;
             } else {
                 System.out.println("Try harder next time :(");
             }
         }
+        System.out.println("Yor score is " + Math.round((float)score / quiz.questions.size() * 100) + "%");
+        System.out.println("(" + ((short)score + "/"+ quiz.questions.size() + " correct)"));
     }
 }
 
