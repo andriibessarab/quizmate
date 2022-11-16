@@ -67,7 +67,6 @@ public class Play {
                 System.out.print("Your answer: ");
                 ans = scan.next();
                 ans = ans.toUpperCase();
-                System.out.println(ans);
 
                 if (ans.length() == 1) {
                     answer = ans.charAt(0);
@@ -86,7 +85,7 @@ public class Play {
                 System.out.println("Try harder next time :(");
             }
         }
-        System.out.println("Yor score is " + Math.round((float)score / quiz.questions.size() * 100) + "%");
+        System.out.println("Your score is " + Math.round((float)score / quiz.questions.size() * 100) + "%");
         System.out.println("(" + ((short)score + "/"+ quiz.questions.size() + " correct)"));
     }
 }
