@@ -31,7 +31,7 @@ public class fileManager {
         List<String> results = new ArrayList<String>();
 
 
-        File[] files = new File(".quizMate./quizData").listFiles(); //If this pathname does not denote a directory, then listFiles() returns null.
+        File[] files = new File("./quizData/").listFiles(); //If this pathname does not denote a directory, then listFiles() returns null.
 
         for (File file : files) {
             if (file.isFile()) {
@@ -45,7 +45,10 @@ public class fileManager {
 	// Add quiz to file
 	public static void writeObject(String quizName, Quiz quiz) {
 
-        String path = ".quizMate./quizData/" + quizName + ".xml"; // Path to file
+        new File("./quizData/").mkdirs();
+        // TODO - if dir exists don't waste memory creating
+
+        String path = "./quizData/" + quizName + ".xml"; // Path to file
 
         try
         {
@@ -64,7 +67,7 @@ public class fileManager {
 	// Read quiz from file
     public static Quiz readObject(String quizName) {
 
-        String path = "./quizData/" + quizName + ".xml"; // Path to file
+        String path = "./quizData/" + quizName; // Path to file
         Quiz data = null;
 
         try
